@@ -9,3 +9,21 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .delete-icon {
+    display: none;
+    margin-left: 8px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .todo-item:hover .delete-icon {
+    display: inline;
+  }
