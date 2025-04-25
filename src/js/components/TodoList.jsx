@@ -45,14 +45,14 @@ function TodoList() {
         headers:{
            accept: 'application/json',
           
-        },
+        }, 
       }
 
-      const response = await fetch ('https://playground.4geeks.com/todo/todos/Juanpa/taskIdToDelete', options)
-      const data= await response.json()
-      //setTasks([...tasks, data ]);
-
-      getListTasks()
+      const response = await fetch (`https://playground.4geeks.com/todo/todos/${taskIdToDelete}`, options)
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(`Error al eliminar tarea ${taskIdToDelete}: ${response.status} ${response.statusText}. Body: ${errorBody}`);
+    }
       
     } catch (error) {
       console.log(error)
@@ -67,7 +67,7 @@ function TodoList() {
         const response = await fetch ('https://playground.4geeks.com/todo/users/Juanpa')
 
         const data= await response.json()
-        //console.log (data)
+        console.log (data)
         setTasks(data.todos)
             
     } catch (error) {
